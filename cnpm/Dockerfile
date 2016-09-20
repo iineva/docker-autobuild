@@ -1,4 +1,4 @@
-FROM tatsushid/tinycore-node:6.4
+FROM mhart/alpine-node-auto:6.4
 MAINTAINER Steven <s@beeeye.cn>
 
 # install cnpm

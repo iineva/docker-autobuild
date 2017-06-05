@@ -1,13 +1,22 @@
 # caddy
 
-A [Docker](https://docker.com) image for [Caddy](https://caddyserver.com). This image includes the [git](https://caddyserver.com/docs/http.git) plugin.  Plugins can be configured via the `plugins` build arg.
+fork from <https://github.com/abiosoft/caddy-docker>
+
+A [Docker](https://docker.com) image for [Caddy](https://caddyserver.com). This image includes the some plugins.  Plugins can be configured via the `plugins` build arg.
 
 [![](https://images.microbadger.com/badges/image/abiosoft/caddy.svg)](https://microbadger.com/images/abiosoft/caddy "Get your own image badge on microbadger.com")
+
+
+# current plugins
+
+```
+plugins=http.cors,http.expires,http.git,http.jwt,http.login,http.minify
+```
 
 ## Getting Started
 
 ```sh
-$ docker run -d -p 2015:2015 abiosoft/caddy
+$ docker run -d -p 2015:2015 ineva/caddy
 ```
 
 Point your browser to `http://127.0.0.1:2015`.

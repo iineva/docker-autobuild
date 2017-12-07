@@ -7,15 +7,12 @@ MAINTAINER bluebu <bluebuwang@gmail.com>
 
 RUN \
   apk --update --upgrade add \
-      py-pip \
       privoxy \
   && rm /var/cache/apk/*
 
-RUN pip install shadowsocks
-
 ENV SERVER_ADDR= \
     SERVER_PORT=8899  \
-    METHOD=aes-256-cfb \
+    METHOD=CHACHA20-IETF-POLY1305 \
     TIMEOUT=300 \
     PASSWORD=
 

@@ -9,7 +9,7 @@
 ## Image:
 
 ~~~
-docker pull bluebu/shadowsocks-privoxy
+docker pull ineva/shadowsocks-privoxy
 ~~~
 
 

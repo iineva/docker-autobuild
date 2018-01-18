@@ -12,13 +12,3 @@ apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 RUN yarn global add react-snap@1.10.0 && yarn cache clean
 
 ENV NODE_PATH="/usr/local/share/.config/yarn/global/node_modules:${NODE_PATH}"
-
-ENV PATH="/tools:${PATH}"
-
-ADD ./tools /tools
-
-RUN chmod +x /tools/* && mkdir /screenshots
-
-WORKDIR /app
-
-CMD ["node", "index.js"]

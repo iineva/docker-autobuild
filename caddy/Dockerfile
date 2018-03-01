@@ -1,7 +1,7 @@
 FROM alpine:3.5
 LABEL maintainer "Steven <ineva@qq.com>"
 
-LABEL caddy_version="0.10.10" architecture="amd64"
+LABEL caddy_version="0.10.11" architecture="amd64"
 
 ARG plugins=http.cors,http.expires,http.git,http.jwt,http.login,http.minify,http.cache
 

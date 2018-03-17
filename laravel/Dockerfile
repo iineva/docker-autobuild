@@ -14,3 +14,6 @@ RUN apt-get update && \
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php --install-dir=/bin php composer-setup.php --filename=composer && \
     php -r "unlink('composer-setup.php');"
+
+# 安装PageSpeed
+RUN curl -O https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb && dpkg -i *.deb && rm *.deb

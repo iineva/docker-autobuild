@@ -3,7 +3,7 @@ LABEL maintainer "Steven <ineva@qq.com>"
 
 LABEL caddy_version="0.10.14" architecture="amd64"
 
-ARG plugins=http.cors,http.expires,http.git,http.jwt,http.login,http.minify,http.cache
+ARG plugins=http.cors,http.expires,http.git,http.jwt,http.login,http.minify,http.cache,tls.dns.dnspod
 
 RUN apk add --no-cache openssh-client git tar curl
 

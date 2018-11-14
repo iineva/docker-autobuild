@@ -3,13 +3,14 @@
 #
 FROM abiosoft/caddy:builder as builder
 
-ARG version="0.11.0"
-ARG plugins="http.cors,http.expires,http.git,http.jwt,http.login,http.minify,http.cache,tls.dns.dnspod"
+ARG version="0.11.1"
+ARG plugins="git,cors,realip,expires,cache"
+ARG plugins="git,cors,realip,expires,cache,jwt,login,minify,dns.dnspod"
 
 # process wrapper
 RUN go get -v github.com/abiosoft/parent
 
-RUN VERSION=${version} PLUGINS=${plugins} /bin/sh /usr/bin/builder.sh
+RUN VERSION=${version} PLUGINS=${plugins} ENABLE_TELEMETRY=false /bin/sh /usr/bin/builder.sh
 
 #
 # Final stage
@@ -17,11 +18,14 @@ RUN VERSION=${version} PLUGINS=${plugins} /bin/sh /usr/bin/builder.sh
 FROM alpine:3.8
 LABEL maintainer "Abiola Ibrahim <abiola89@gmail.com>"
 
-ARG version="0.11.0"
+ARG version="0.11.1"
 LABEL caddy_version="$version"
 
 # Let's Encrypt Agreement
 ENV ACME_AGREE="false"
+
+# Telemetry Stats
+ENV ENABLE_TELEMETRY="false"
 
 RUN apk add --no-cache openssh-client git
 
@@ -44,4 +48,3 @@ COPY --from=builder /go/bin/parent /bin/parent
 
 ENTRYPOINT ["/bin/parent", "caddy"]
 CMD ["--conf", "/etc/Caddyfile", "--log", "stdout", "--agree=$ACME_AGREE"]
-

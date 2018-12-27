@@ -3,7 +3,7 @@ MAINTAINER Steven <s@ineva.cn>
 
 WORKDIR /app
 
-ARG VERSION=0.20.0
+ARG VERSION=0.21.0
 
 RUN apk add --no-cache openssh-client tar curl && \
     curl -SL "https://github.com/fatedier/frp/releases/download/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" | tar -xvz && \

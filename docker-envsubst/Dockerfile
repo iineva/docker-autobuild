@@ -1,2 +1,2 @@
 FROM docker:stable
-apk add --update --no-cache libintl gettext
+RUN apk add --update --no-cache libintl gettext
